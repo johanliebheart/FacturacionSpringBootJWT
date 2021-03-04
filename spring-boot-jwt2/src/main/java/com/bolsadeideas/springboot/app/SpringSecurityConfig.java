@@ -38,21 +38,21 @@ public class SpringSecurityConfig extends WebSecurityConfigurerAdapter{
 		
 		
 		
-		http.authorizeRequests().antMatchers("/","/css/**","/js/**","/img/**","/listar**","/locale","/api/clientes/**").permitAll().
+		http.authorizeRequests().antMatchers("/","/css/**","/js/**","/img/**","/listar**","/locale").permitAll().
 		//antMatchers("/ver/**").hasAnyRole("USER").
 		//antMatchers("/uploads/**").hasAnyRole("USER").
 		//antMatchers("/form/**").hasAnyRole("ADMIN").
 		//antMatchers("/eliminar/**").hasAnyRole("ADMIN").
 		//antMatchers("/factura/**").hasAnyRole("ADMIN").
-		anyRequest().authenticated().
-		and().formLogin()
+		anyRequest().authenticated()
+		/*.and().formLogin()
 		.successHandler(succesHandler)
 		.loginPage("/login")
 		.permitAll()
 		.and()
 		.logout().permitAll()
 		.and()
-		.exceptionHandling().accessDeniedPage("/error_403")
+		.exceptionHandling().accessDeniedPage("/error_403")*/
 		.and()
 		.csrf().disable()
 		.sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS);
